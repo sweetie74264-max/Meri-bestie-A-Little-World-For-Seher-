@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little World For Seher 💗</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #100810;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 45px 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: fade 1s;
+}
+
+.page.active {
+  display: flex;
+}
+
+@keyframes fade {
+  from {opacity: 0; transform: translateY(15px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+  color: #ff80bd;
+  font-size: 34px;
+  margin-bottom: 18px;
+  text-shadow: 0 0 15px #ff3999;
+}
+
+h2 {
+  color: #ff9acb;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #f9dce9;
+  max-width: 500px;
+}
+
+button {
+  background: linear-gradient(135deg,#ff3f9d,#a60064);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 28px;
+  font-size: 16px;
+  margin-top: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff399966;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+.heart {
+  font-size: 75px;
+  animation: beat 1.2s infinite;
+  margin: 15px;
+}
+
+@keyframes beat {
+  50% {transform: scale(1.2);}
+}
+
+.float {
+  position: fixed;
+  bottom: -30px;
+  color: #ff62ad;
+  font-size: 22px;
+  pointer-events: none;
+  animation: rise 7s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rise {
+  to {transform: translateY(-110vh) rotate(360deg); opacity: 0;}
+}
+
+.card {
+  background: #291526;
+  border: 1px solid #ff6caf;
+  border-radius: 22px;
+  padding: 25px;
+  width: 100%;
+  max-width: 430px;
+  margin: 12px auto;
+  box-shadow: 0 0 18px #ff399922;
+}
+
+.card p {
+  font-size: 16px;
+}
+
+.big {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.note {
+  text-align: left;
+  line-height: 2;
+}
+
+.small {
+  color: #ff9acb;
+  font-size: 14px;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+  <div class="big">🎀💗</div>
+  <h1>Hey Beautiful!</h1>
+  <h2>Someone has a surprise for you...</h2>
+  <p>Dear Seher, this little website is made with lots of love and friendship.</p>
+  <button onclick="next(2)">Open My Heart 💌</button>
+  <div class="small">A special surprise from Alina</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+  <div class="heart">💗</div>
+  <h1>For My Favourite Person</h1>
+  <p>Before we start, I want you to know that you are someone really special.</p>
+  <button onclick="next(3)">Let's See Your Magic ✨</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+  <div class="big">🌸</div>
+  <h1>100% Special!</h1>
+  <h2 id="percent">0%</h2>
+  <p>Checking how special Seher is...</p>
+  <button onclick="startLoading()">Check Again 💕</button>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+  <div class="big">🦋</div>
+  <h1>Just For You, Seher</h1>
+  <div class="card"><p>You're not just a friend, you're a beautiful part of my life.</p></div>
+  <div class="card"><p>Your presence makes ordinary moments feel special.</p></div>
+  <div class="card"><p>You deserve all the happiness in this world.</p></div>
+  <div class="card"><p>Never forget how precious you are.</p></div>
+  <button onclick="next(5)">See More 💗</button>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+  <h1>Things I Want You To Know 🌷</h1>
+  <div class="card"><p>1. I am so lucky to have a bestie like you.</p></div>
+  <div class="card"><p>2. Your friendship means more than words can explain.</p></div>
+  <div class="card"><p>3. You can always be yourself around me.</p></div>
+  <div class="card"><p>4. I hope we make millions of beautiful memories.</p></div>
+  <div class="card"><p>5. No matter how busy life gets, you'll always be special.</p></div>
+  <div class="card"><p>6. I love our silly talks and random moments.</p></div>
+  <div class="card"><p>7. Thank you for being YOU!</p></div>
+  <button onclick="next(6)">One More Surprise 🎁</button>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+  <div class="big">💌</div>
+  <h1>A Little Note For You</h1>
+  <p>There is something I really want to tell you...</p>
+  <button onclick="next(7)">Open My Letter 💗</button>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page" id="page7">
+  <h1>Dear Seher ❤️</h1>
+  <div class="card note">
+    My dearest Seher,
+
+    <br><br>
+
+    I don't know how to explain how much your friendship means to me. Some people come into our lives and slowly become one of the most beautiful parts of it. You are one of those people.
+
+    <br><br>
+
+    Thank you for every laugh, every conversation, every little moment and every memory. I hope you always find reasons to smile.
+
+    <br><br>
+
+    I want you to achieve everything your heart wishes for. Never doubt your worth. You are amazing, unique and truly special.
+
+    <br><br>
+
+    Even when life gets busy, I hope our friendship stays full of laughter, craziness and beautiful memories.
+
+    <br><br>
+
+    I'm not perfect, but I promise to always value this friendship.
+
+    <br><br>
+
+    Lots of love and endless duas,
+
+    <br><br>
+
+    **Your Bestie, Alina 💗**
+  </div>
+  <button onclick="next(8)">Wait... One Last Thing 🥹</button>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page" id="page8">
+  <div class="big">🌍💗</div>
+  <h1>My Favourite Human!</h1>
+  <h2>Seher, You're One Of A Kind!</h2>
+  <p>
+    If I could choose my favourite people all over again,
+    I'd still be happy to have a bestie like you.
+  </p>
+  <button onclick="next(9)">Final Surprise 🎀</button>
+</section>
+
+<!-- FINAL PAGE -->
+<section class="page" id="page9">
+  <div class="big">💖🦋🌸</div>
+  <h1>Forever My Bestie!</h1>
+
+  <div class="card">
+    <h2>Dear Seher,</h2>
+    <p>
+      In a world full of temporary things,
+      I hope our friendship remains a beautiful forever.
+
+      <br><br>
+
+      You are not just a chapter in my life,
+      you are one of my favourite stories.
+
+      <br><br>
+
+      Thank you for being my Seher.
+      Never stop smiling and never forget
+      how special you are.
+
+      <br><br>
+
+      <b>Best friends today, tomorrow and always! 💗</b>
+    </p>
+  </div>
+
+  <h2>Made With Love By Alina</h2>
+  <div class="heart">💗</div>
+  <p>Our friendship deserves its own little universe. ✨</p>
+</section>
+
+<script>
+function next(number) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.getElementById('page' + number).classList.add('active');
+  window.scrollTo(0,0);
+
+  if(number === 3) {
+    document.getElementById('percent').innerText = '100%';
+  }
+}
+
+function startLoading() {
+  let value = 0;
+  let display = document.getElementById('percent');
+  display.innerText = '0%';
+
+  let timer = setInterval(() => {
+    value += 10;
+    display.innerText = value + '%';
+
+    if(value >= 100) {
+      clearInterval(timer);
+      setTimeout(() => next(4), 700);
+    }
+  }, 150);
+}
+
+// Floating hearts
+setInterval(() => {
+  let heart = document.createElement('div');
+  heart.className = 'float';
+  heart.innerHTML = ['💗','💕','💖','✨','🌸'][Math.floor(Math.random()*5)];
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.animationDuration = (4+Math.random()*5) + 's';
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 9000);
+}, 600);
+</script>
+
+</body>
+</html>
